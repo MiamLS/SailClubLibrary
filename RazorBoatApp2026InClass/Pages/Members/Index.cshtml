@@ -40,6 +40,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Image</th>
             <form method="get"><th><button type="submit" class="btn btn-link" name="SortBy" value="ID">ID</button></th></form>
             <th>FirstName</th>
             <form method="get"><th><button type="submit" class="btn btn-link" name="SortBy" value="SurName">SurName</button></th></form>
@@ -56,6 +57,9 @@
         @foreach (Member item in Model.Members) //Vi vil gerne løbe alle vores (public property) Member igennem og tage ét member ud af gangen (item) som vi smider ind i en række. Det gør vi ved at blande C# med html ved at bruge @
         {
             <tr>
+                <td>
+                    <img src="~/images/MemberImages/@item.MemberImage" class="rounded-circle" width="80" height="70" />
+                </td>
                 <td>@item.Id</td>
                 <td>@item.FirstName</td>
                 <td>@item.SurName</td>

@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 
 namespace SailClubLibrary.Helpers.Filter
 {
-    //public class FilterFunctions<T>(List<T> objects, params Predicate<T>[] predicates)
-    //{
-
-    //}
 
     public class FilterFunctions
         {

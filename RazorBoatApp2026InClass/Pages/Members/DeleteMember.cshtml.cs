@@ -3,29 +3,30 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using SailClubLibrary.Interfaces;
 using SailClubLibrary.Models;
 using SailClubLibrary.Services;
+using System.Threading.Tasks;
 
 namespace RazorBoatApp2026InClass.Pages.Members
 {
     public class DeleteMemberModel : PageModel
     {
 
-        private IMemberRepository _repo;
+        private IMemberRepositoryAsync _repo;
 
         public Member DeleteMember { get; set; }
 
-        public DeleteMemberModel(IMemberRepository memberRepository)
+        public DeleteMemberModel(IMemberRepositoryAsync memberRepository)
         {
             _repo = memberRepository;
         }
-        public IActionResult OnGet(string phoneNumber)
+        public async Task<IActionResult> OnGet(string phoneNumber)
         {
-            DeleteMember = _repo.SearchMember(phoneNumber);
+            DeleteMember = await _repo.SearchMemberAsync(phoneNumber);
             return Page();
         }
 
-        public IActionResult OnPostDelete(Member member) //IActionResult redirecter os til en return page, i dette tilfælde vores index side i vores Boats folder
+        public async Task<IActionResult> OnPostDelete(Member member) //IActionResult redirecter os til en return page, i dette tilfælde vores index side i vores Boats folder
         {
-            _repo.RemoveMember(member);
+            await _repo.RemoveMemberAsync(member);
             return RedirectToPage("Index");
         }
 

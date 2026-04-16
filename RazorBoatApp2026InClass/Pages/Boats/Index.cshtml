@@ -23,6 +23,10 @@
             <th>BoatType</th>
             <th>Model</th>
              <form method="get"><th><button type="submit" class="btn btn-link" name="SortBy" value="SailNumber">SailNumber</button></th></form>
+            <th>EngineInfo</th>
+            <th>Draft</th>
+            <th>Width</th>
+            <th>Length</th>
              <form method="get"><th><button type="submit" class="btn btn-link" name="SortBy" value="YearOfConstruction">YearOfConstruction</button></th></form>
             <th></th>
         </tr>
@@ -35,6 +39,10 @@
                 <td>@item.TheBoatType</td>
                 <td>@item.Model</td>
                 <td>@item.SailNumber</td>
+                <td>@item.EngineInfo</td>
+                <td>@item.Draft</td>
+                <td>@item.Width</td>
+                <td>@item.Length</td>
                 <td>@item.YearOfConstruction</td>
                 <td><a asp-page="DeleteBoat" asp-route-sailNumber="@item.SailNumber">Delete</a> |
                 <a asp-page="EditBoat" asp-route-sailNumber="@item.SailNumber">Edit</a></td>

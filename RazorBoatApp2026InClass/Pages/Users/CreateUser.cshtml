@@ -1,0 +1,23 @@
+﻿@page
+@model RazorBoatApp2026InClass.Pages.Users.CreateUserModel
+@{
+    ViewData["Title"] = "Opret ny bruger";
+}
+<div>
+    <h2>Opret ny bruger:</h2>
+    <form method="post" enctype="multipart/form-data">
+        <div>
+            <label asp-for="@Model.NewUser.Username" class="control-label"></label>
+            <input asp-for="@Model.NewUser.Username" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.NewUser.Password" class="control-label"></label>
+            <input asp-for="@Model.NewUser.Password" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Tilføj bruger" class="btn btn-outline-success" />
+        </div>
+    </form>
+</div>
+

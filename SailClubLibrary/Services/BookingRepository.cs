@@ -12,7 +12,7 @@ namespace SailClubLibrary.Services
     /// <summary>
     /// Class for Constructing and calling Booking Repository Objects using the interface
     /// </summary>
-    public class BookingRepository : IBookingRepository
+    public class BookingRepository : Connection, IBookingRepository
     {
         #region Fields
         private List<Booking> _bookings;

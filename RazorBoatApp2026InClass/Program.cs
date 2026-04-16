@@ -5,10 +5,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddSingleton<IBoatRepository, BoatRepository>();
-builder.Services.AddSingleton<IMemberRepository, MemberRepository>();
+builder.Services.AddTransient<IBoatRepositoryAsync, BoatRepositoryAsync>();
+builder.Services.AddTransient<IMemberRepositoryAsync, MemberRepositoryAsync>();
 builder.Services.AddSingleton<IBookingRepository, BookingRepository>();
-
+builder.Services.AddTransient<IUserServiceAsync, UserServiceAsync>();
+builder.Services.AddSession();    //Nyt
+builder.Services.AddHttpContextAccessor();//Nyt
 
 var app = builder.Build();
 
@@ -19,6 +21,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseSession();  //Nyt
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

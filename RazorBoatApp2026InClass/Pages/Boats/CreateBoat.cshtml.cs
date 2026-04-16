@@ -8,12 +8,12 @@ namespace RazorBoatApp2026InClass.Pages.Boats
 {
     public class CreateBoatModel : PageModel
     {
-        private IBoatRepository _repo;
+        private IBoatRepositoryAsync _repo;
 
         [BindProperty]
         public Boat NewBoat { get; set; }
 
-        public CreateBoatModel(IBoatRepository boatRepository)
+        public CreateBoatModel(IBoatRepositoryAsync boatRepository)
         {
             _repo = boatRepository;
         }
@@ -22,7 +22,7 @@ namespace RazorBoatApp2026InClass.Pages.Boats
         {
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPost()
         {
             if(!ModelState.IsValid)
             {
@@ -30,7 +30,7 @@ namespace RazorBoatApp2026InClass.Pages.Boats
             }
             try
             {
-                _repo.AddBoat(NewBoat);
+                await _repo.AddBoatAsync(NewBoat);
             }
             catch (BoatSailnumberExistsException bex)
             {

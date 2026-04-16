@@ -13,7 +13,7 @@ namespace SailClubLibrary.Services
     /// <summary>
     /// Class for Constructing and calling Boat Repository Objects using the interface
     /// </summary>
-    public class BoatRepository : IBoatRepository
+    public class BoatRepository : Connection, IBoatRepository
     {
         #region Instance Field
         private Dictionary<string, Boat> _boats;

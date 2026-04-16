@@ -13,7 +13,7 @@ namespace SailClubLibrary.Services
     /// <summary>
     /// Class for Constructing and calling Member Repository Objects using the interface
     /// </summary>
-    public class MemberRepository : IMemberRepository
+    public class MemberRepository : Connection, IMemberRepository
     {
         #region Instance Fields
         private Dictionary<string, Member> _members;
